@@ -691,6 +691,49 @@ $if(listingTitle)$\renewcommand*{\lstlistingname}{$listingTitle$}$endif$
 
 $if(titlepage)$
 \begin{titlepage}
+$if(titlepage-jku)$ %% Start JKU full titlepage
+\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}
+\DeclareFontShape{OT1}{cmss}{m}{n}
+  {<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88><29.86><35.83>%
+   <42.99><51.59><67><77.38>cmss10}{}
+\DeclareFontShape{OT1}{cmss}{bx}{n}
+  {<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88><29.86><35.83>%
+   <42.99><51.59><67><77.38>cmssbx10}{}
+\makeatletter
+\def\Huge{\@setfontsize\Huge{29.86pt}{36}}
+\makeatother
+%
+\unitlength 1cm
+\sffamily
+\begin{picture}(16.7,0)
+ \put(11.5,-2){\includegraphics[width=5.2cm]{$logo-jku$}}
+\put(12.9,-3){\begin{minipage}[t]{4cm}\raggedright\normalsize%
+{\bfseries $for(author)$$author$$sep$ \\ $endfor$}%
+\end{minipage}}
+\put(12.9,-20){\begin{minipage}[t]{3.9cm}\footnotesize%
+{\bfseries JOHANNES KEPLER\\
+ UNIVERSIT\"AT
+LINZ}\\
+Altenbergerstra{\ss}e 69\\
+4040 Linz, \"Osterreich\\
+www.jku.at\\
+DVR 0093696
+\end{minipage}}
+$if(title)$\put(0,-10.2){\begin{minipage}[b]{12cm}\raggedright\Huge\bfseries $title$ \end{minipage}}$endif$
+\put(0,-15.2){\includegraphics[width=4.4cm]{$logo-k$}}
+$if(project)$\put(0,-16.3){\begin{minipage}[t]{12cm}\raggedright\Large\bfseries $project$ \\ \mdseries $if(topic)$$topic$$endif$ %
+\end{minipage}}$endif$
+$if(videolink)$\put(0,-21){\begin{minipage}[t]{3.9cm}\raggedright\tiny%
+{\qrcode[height=2cm]{$videolink$}\\\vspace{0.2cm} YouTube-Video}%
+\end{minipage}}$endif$
+
+\put(6,-21){\includegraphics[width=2cm]{$img-cc$}}
+\put(6,-21.5){\begin{minipage}[t]{4cm}\raggedright\tiny%
+{Dieses Werk ist lizensiert unter einer Namensnennung - Nicht-kommerziell - Weitergabe unter gleichen Bedingungen 3.0 Österreich Lizenz}%
+\end{minipage}}
+
+\end{picture}
+$else$ %% End JKU full titlepage and start normal full titlepage
 \newgeometry{left=6cm}
 $if(titlepage-color)$
 \definecolor{titlepage-color}{HTML}{$titlepage-color$}
@@ -720,6 +763,7 @@ $endif$
 
 \textsf{$date$}}
 \end{flushleft}
+$endif$ %% end normal full titlepage
 \end{titlepage}
 \restoregeometry
 $endif$
@@ -743,6 +787,19 @@ $for(include-before)$
 $include-before$
 
 $endfor$
+$if(titlepage)$
+$else$
+$if(titlepage-jku)$
+\pagestyle{empty}
+$if(title)$\Huge\bfseries $title$  \\$endif$
+\includegraphics[height=2cm]{$logo-k$}\\
+$if(project)$\large\bfseries $project$  \\$endif$
+$if(topic)$\large\mdseries $topic$  \\$endif$
+\vspace{0.5cm} \hrule
+\normalsize
+$else$
+$endif$
+$endif$
 $if(toc)$
 $if(toc-title)$
 \renewcommand*\contentsname{$toc-title$}
