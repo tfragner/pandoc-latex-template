@@ -669,6 +669,18 @@ $endif$
 %% end added
 %%
 
+%%
+%% start customizations tfragner
+%%
+
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\else
+\usepackage{awesomebox}
+\fi
+
+%%
+%% end customizations tfragner
+
 \begin{document}
 
 %%
