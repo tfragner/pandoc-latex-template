@@ -678,6 +678,8 @@ $endif$
 \usepackage{awesomebox}
 \fi
 
+$if(listingTitle)$\renewcommand*{\lstlistingname}{$listingTitle$}$endif$
+
 %%
 %% end customizations tfragner
 
