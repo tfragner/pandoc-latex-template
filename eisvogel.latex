@@ -691,7 +691,7 @@ $if(listingTitle)$\renewcommand*{\lstlistingname}{$listingTitle$}$endif$
 
 $if(titlepage)$
 \begin{titlepage}
-$if(titlepage-jku)$ %% Start JKU full titlepage
+$if(jku)$ %% Start JKU full titlepage
 \def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}
 \DeclareFontShape{OT1}{cmss}{m}{n}
   {<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88><29.86><35.83>%
@@ -789,7 +789,7 @@ $include-before$
 $endfor$
 $if(titlepage)$
 $else$
-$if(titlepage-jku)$
+$if(jku)$
 \pagestyle{empty}
 $if(title)$\Huge\bfseries $title$  \\$endif$
 \includegraphics[height=2cm]{$logo-k$}\\
@@ -834,6 +834,23 @@ $if(lof)$
 \listoffigures
 $endif$
 $body$
+
+$if(jku)$
+\vspace*{\fill}
+
+$if(titlepage)$
+$else$
+$if(videolink)$\qrcode[height=2cm]{$videolink$} \\\vspace{0.2cm} \tiny YouTube-Video$endif$
+$endif$
+
+\footnotesize Johannes Kepler Universität Linz\\$author$\\Autoren: {$for(contributors)$$contributors$$sep$, $endfor$} \\Kontakt: $contact$
+
+$if(titlepage)$
+$else$
+\includegraphics[width=2cm]{$img-cc$}\\
+\tiny Dieses Werk ist lizensiert unter einer Namensnennung - Nicht-kommerziell - Weitergabe unter gleichen Bedingungen 3.0 Österreich Lizenz
+$endif$
+$endif$
 
 $if(natbib)$
 $if(bibliography)$
