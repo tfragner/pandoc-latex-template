@@ -706,7 +706,7 @@ $if(jku)$ %% Start JKU full titlepage
 \unitlength 1cm
 \sffamily
 \begin{picture}(16.7,0)
- \put(11.5,-2){\includegraphics[width=5.2cm]{$logo-jku$}}
+\put(11.5,-2){\includegraphics[width=5.2cm]{$logo-jku$}}
 \put(12.9,-3){\begin{minipage}[t]{4cm}\raggedright\normalsize%
 {\bfseries $for(author)$$author$$sep$ \\ $endfor$}%
 \end{minipage}}
