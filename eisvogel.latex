@@ -677,7 +677,8 @@ $endif$
 \else
 \usepackage{awesomebox}
 \fi
-
+\usepackage{todonotes}
+\usepackage{qrcode}
 $if(listingTitle)$\renewcommand*{\lstlistingname}{$listingTitle$}$endif$
 
 %%
@@ -796,6 +797,7 @@ $if(title)$\Huge\bfseries $title$  \\$endif$
 $if(project)$\large\bfseries $project$  \\$endif$
 $if(topic)$\large\mdseries $topic$  \\$endif$
 \vspace{0.5cm} \hrule
+\mdseries
 \normalsize
 $else$
 $endif$
