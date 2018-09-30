@@ -849,6 +849,9 @@ $endif$
 $if(lof)$
 \listoffigures
 $endif$
+$if(lof)$
+\listoflistings
+$endif$
 $body$
 
 $if(jku)$
