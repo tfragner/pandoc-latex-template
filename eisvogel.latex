@@ -688,6 +688,11 @@ $if(listingTitle)$\renewcommand*{\lstlistingname}{$listingTitle$}$endif$
 %%
 %% end customizations tfragner
 
+\usepackage{pifont}
+\renewcommand\labelitemi{\ding{110}}
+\renewcommand\labelitemii{\ding{228}}
+\renewcommand\labelitemiii{\ding{117}}
+
 \begin{document}
 
 %%
